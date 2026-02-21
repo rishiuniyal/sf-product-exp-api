@@ -1,0 +1,8 @@
+# Production environment-specific properties
+
+http:
+  request:
+    host: ""
+    port: ""
+    clientId: ""
+    clientSecret: ""

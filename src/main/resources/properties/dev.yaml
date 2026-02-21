@@ -1,0 +1,11 @@
+# Development environment-specific properties
+
+http:
+  request:
+    host: "localhost"
+    port: "8083"
+    clientId: ""
+    clientSecret: ""
+    
+autodiscovery:
+  id: "12345"
