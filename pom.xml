@@ -6,7 +6,7 @@
 	<artifactId>sf-products-exp-api</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
-	<name>sf-products-exp-api</name>
+	<name>sf-products-exp-api-dev</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

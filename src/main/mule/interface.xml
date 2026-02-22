@@ -12,6 +12,7 @@
             </http:error-response>
         </http:listener>
         <apikit:router config-ref="sf-products-exp-api-config" />
+		<error-handler ref="global-error-handler" />
     </flow>
     <flow name="put:\v1\products\(productId):application\json:sf-products-exp-api-config">
         <flow-ref doc:name="update-product-sf-sub-flow" doc:id="4ba69add-757c-421e-b273-23fa3975bb2a" name="update-sf-product-sub-flow" />

@@ -832,4 +832,8 @@ type auto_354b5e70_d5b3_4d98_ab38_43ebc6c18214_Output_Variables_currencyCode = A
       </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
+  <types:enrichment select="#66d05dd5-dfed-474d-bac8-798483942977"/>
+  <types:enrichment select="#eafb047d-79e2-4abc-8ea9-6227e940e02a"/>
+  <types:enrichment select="#e862d88b-cbbd-4d3e-9a03-83b501fa5c3e"/>
+  <types:enrichment select="#9708c2f7-9b9f-4d4e-ad90-789360bb9e59"/>
 </types:mule>

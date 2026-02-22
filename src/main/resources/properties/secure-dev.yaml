@@ -4,3 +4,8 @@ http:
   request:
     clientId: "![6/wasgK3bfAyERdR5UIkn3xjreaoWa4XLDnIkvdMFm/7Ws+W7Cpb8vkApFbGlAAu]"
     clientSecret: "![WkiNSXueFsD++QZFmv1M313trxw13yPqiH5psBvJ7qu46t2SVeBShhT5Hyns4dpu]"
+    
+tls:
+  keystore:
+    password: "![9DPrwfR4BQrEYjUwAV4YmQ==]"
+  
