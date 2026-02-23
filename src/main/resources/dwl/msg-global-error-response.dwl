@@ -16,5 +16,5 @@ var suppressed = error.suppressedErrors[0] default[]
 	errorMessage: if(!isEmpty(suppressed))
 					suppressed.description default error.description
 				  else
-					error.errorMessage.payload.errorMessage default error.description
+					vars.errorMessage.errorDescription default error.description
 }

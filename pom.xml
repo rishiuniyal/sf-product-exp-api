@@ -4,7 +4,7 @@
 
 	<groupId>020f4d86-fd4b-4d1d-9b27-999b89093231</groupId>
 	<artifactId>sf-products-eapi</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>mule-application</packaging>
 	<name>sf-products-exp-api</name>
 
