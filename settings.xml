@@ -3,8 +3,8 @@
 <servers>
 		<server>
 			<id>anypoint-exchange-v3</id>
-			<username>~~~Client~~~</username>
-			<password>7e4d9a6e338c47d684ea2d8a71915470~?~1285052797554318B706a65b1c6BF97e</password>
+			<username>${env.ANYPOINT_CLIENT_ID}</username>
+      		<password>${env.ANYPOINT_CLIENT_SECRET}</password>
 		</server>
 </servers>
 <profiles>
@@ -41,3 +41,4 @@
     </profile>
 </profiles>   
 </settings>
+
