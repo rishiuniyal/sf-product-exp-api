@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
-    <apikit:config name="sf-products-exp-api-config" api="resource::020f4d86-fd4b-4d1d-9b27-999b89093231:sf-products-exp-api:1.0.1:raml:zip:sf-products-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
-    <flow name="sf-products-exp-api-main">
+    <apikit:config name="sf-products-exp-api-config" api="resource::020f4d86-fd4b-4d1d-9b27-999b89093231:sf-products-exp-api:1.0.2:raml:zip:sf-products-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <flow name="sf-products-exp-api-main" doc:id="7fc55ff9-97fb-4373-84bc-23577dcdf746">
         <http:listener config-ref="http-listener-config" path="/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
                 <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
@@ -12,7 +12,7 @@
             </http:error-response>
         </http:listener>
         <apikit:router config-ref="sf-products-exp-api-config" />
-		<error-handler ref="global-error-handler" />
+        <error-handler ref="global-error-handler" />
     </flow>
     <flow name="put:\v1\products\(productId):application\json:sf-products-exp-api-config">
         <flow-ref doc:name="update-product-sf-sub-flow" doc:id="4ba69add-757c-421e-b273-23fa3975bb2a" name="update-sf-product-sub-flow" />
@@ -23,7 +23,7 @@
     <flow name="get:\ping:sf-products-exp-api-config">
         <flow-ref doc:name="ping-health-check-sub-flow" doc:id="899ea40c-9fb3-4113-82f3-364f6ee3e283" name="ping-health-check-sub-flow" />
     </flow>
-    <flow name="get:\v1\products:sf-products-exp-api-config">
+    <flow name="get:\v1\products:sf-products-exp-api-config" doc:id="5bc17507-e9a6-4bf5-b627-92dd7709e949">
         <flow-ref doc:name="get-sf-products-sub-flow" doc:id="efd514af-d2c4-44e1-ab8b-1e0c27887654" name="get-sf-products-sub-flow" />
     </flow>
     <flow name="post:\v1\products:application\json:sf-products-exp-api-config">

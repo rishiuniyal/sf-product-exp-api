@@ -9,12 +9,12 @@ http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mu
 		<logger level="DEBUG" doc:name="DEBUG: start of prc-api-request-sub-flow" doc:id="e2926864-2ea1-47b4-b784-2636565fe2c9" message="#[%dw 2.0&#10;output application/json skipNullOn=&quot;everywhere&quot;&#10;---&#10;{&#10;    &quot;log-message&quot;:{&#10;        &quot;message&quot;:&quot;prc api request flow started&quot;,&#10;        &quot;log-tracepoint&quot;: &quot;BEFORE_REQUEST&quot;,&#10;        &quot;Log-Level&quot;:&quot;DEBUG&quot;,&#10;        &quot;Environment&quot;: p('mule.env'),&#10;        &quot;correlationId&quot;: correlationId,&#10;        &quot;Payload&quot;: write(payload,&quot;application/json&quot;)        &#10;    }&#10;}]" category="${debug.category}" />
 		<until-successful maxRetries="${reconnection.attempts}" doc:name="Until Successful" doc:id="44388a26-d315-4582-b1cb-9a1e785859d8" millisBetweenRetries="${reconnection.frequency}">
 			<try doc:name="Try" doc:id="997b9b5f-cf4a-4617-838b-9aec866807bc" >
-				<http:request method="#[vars.method]" doc:name="Process API request" doc:id="1ae915dc-0eb7-43ad-ac98-b4d17da5cc3a" config-ref="prc-api-http-request-config" responseTimeout="${http.request.responseTimeout}" path="#[if(!isEmpty(vars.productId)) (p('http.request.path') ++ &quot;/&quot; ++ (vars.productId as String))&#10;else (p('http.request.path'))]" sendCorrelationId="ALWAYS">
+				<http:request method="#[vars.method]" doc:name="Process API request" doc:id="1ae915dc-0eb7-43ad-ac98-b4d17da5cc3a" config-ref="prc-api-http-request-config" responseTimeout="100000" path="#[if(!isEmpty(vars.productId)) (p('http.request.path') ++ &quot;/&quot; ++ (vars.productId as String))&#10;else (p('http.request.path'))]" sendCorrelationId="ALWAYS">
 				<http:headers><![CDATA[#[output application/json
 ---
 {
-	"client_id": p('http.request.clientId'),
-	"client_secret": p('http.request.secret')
+	"client_id": p('secure::http.request.clientId'),
+	"client_secret": p('secure::http.request.clientSecret')
 }]]]></http:headers>
 				<http:query-params><![CDATA[#[output aplication/json
 ---
@@ -29,7 +29,7 @@ http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mu
 						<logger level="ERROR" doc:name="ERROR: server error from upstream" doc:id="32f7756d-733d-4629-8f79-25ac83447d37" message="#[%dw 2.0&#10;output application/json skipNullOn=&quot;everywhere&quot;&#10;---&#10;{&#10;    &quot;log-message&quot;:{&#10;        &quot;message&quot;:&quot;server error from upstream system&quot;,&#10;        &quot;app&quot;:app.name,&#10;        &quot;log-tracepoint&quot;: &quot;AT_REQUEST&quot;,&#10;        &quot;Log-Level&quot;:&quot;INFO&quot;,&#10;        &quot;Environment&quot;: p('mule.env'),&#10;        &quot;correlationId&quot;: correlationId,&#10;        &quot;Payload&quot;: null&#10;    }&#10;}]" />
 					</on-error-propagate>
 					<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="a33e6239-843a-421f-95f4-1517c0cfe7c2" >
-						<set-variable value='#[{&#10;	"errorDescription": error.description,&#10;	"errorType": (error.errorType.namespace default "") ++ ":" ++ (error.errorType.identifier default "")&#10;}]' doc:name="errorMessage" doc:id="c28f491a-229b-4d31-81ad-f7d58a470a86" variableName="errorMessage"/>
+						<set-variable value='#[output application/json&#10;---&#10;{&#10;	"errorDescription": error.errorMessage.payload.errorMessage default error.description,&#10;	"errorType": (error.errorType.namespace default "") ++ ":" ++ (error.errorType.identifier default "")&#10;}]' doc:name="errorMessage" doc:id="c28f491a-229b-4d31-81ad-f7d58a470a86" variableName="errorMessage"/>
 						<logger level="INFO" doc:name="INFO: continue non retry error" doc:id="fd6fd730-8d93-4088-bc32-c3b1db2f6a40" message="#[%dw 2.0&#10;output application/json skipNullOn=&quot;everywhere&quot;&#10;---&#10;{&#10;    &quot;log-message&quot;:{&#10;        &quot;message&quot;:&quot;continue non retry error&quot;,&#10;        &quot;app&quot;:app.name,&#10;        &quot;log-tracepoint&quot;: &quot;AT_REQUEST&quot;,&#10;        &quot;Log-Level&quot;:&quot;INFO&quot;,&#10;        &quot;Environment&quot;: p('mule.env'),&#10;        &quot;correlationId&quot;: correlationId,&#10;        &quot;Payload&quot;: null&#10;    }&#10;}]" />
 					</on-error-continue>
 				</error-handler>
