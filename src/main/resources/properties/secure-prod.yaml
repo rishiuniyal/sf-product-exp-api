@@ -1,0 +1,6 @@
+# Development environment-specific properties
+
+http:
+  request:
+    clientId: ""
+    clientSecret: ""
