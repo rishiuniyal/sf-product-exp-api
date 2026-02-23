@@ -8,7 +8,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 			</tls:context>
 		</http:listener-connection>
     </http:listener-config>
-    <apikit:config name="sf-products-sys-api-config" api="resource::020f4d86-fd4b-4d1d-9b27-999b89093231:sf-products-exp-api:1.0.2:raml:zip:sf-products-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+     <apikit:config name="sf-products-exp-api-config" api="resource::020f4d86-fd4b-4d1d-9b27-999b89093231:sf-products-exp-api:1.0.2:raml:zip:sf-products-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <configuration-properties doc:name="Configuration properties" doc:id="9d015d85-152c-471d-92cc-550b039460df" doc:description="Environment-agnostic properties" file="properties/common.yaml" />
     <configuration-properties doc:name="Configuration properties" doc:id="1d9c81de-790e-4832-b752-60c31f8d8215" file="properties/${mule.env}.yaml" doc:description="Environment-specific properties" />
     <secure-properties:config name="secure-properties-config" doc:name="Secure Properties Config" doc:id="9174e84d-c26a-4ac8-b9b7-e5ddec0ec37b" doc:description="Environment-specific secure properties" file="properties/secure-${mule.env}.yaml" key="${mule.key}" />

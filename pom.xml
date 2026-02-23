@@ -4,9 +4,9 @@
 
 	<groupId>020f4d86-fd4b-4d1d-9b27-999b89093231</groupId>
 	<artifactId>sf-products-eapi</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<packaging>mule-application</packaging>
-	<name>sf-products-exp-api</name>
+	<name>sf-products-exp-api-1</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,8 +77,7 @@
 						</secureProperties>
 					</cloudhub2Deployment>
 					<classifier>mule-application</classifier>
-					<sharedLibraries>
-					</sharedLibraries>
+					<sharedLibraries/>
 				</configuration>
 			</plugin>
 			<plugin>
