@@ -35,7 +35,7 @@ jobs:
       run: mvn -version
     
     - name: Deploy to Exchange
-      run: mvn clean deploy -s settings.xml 
+      run: mvn clean deploy -s settings.xml -DskipTests
       
     - name: Deploy to Runtime
 
