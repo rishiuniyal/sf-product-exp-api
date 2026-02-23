@@ -10,7 +10,7 @@ env:
   CLIENT_ID: ${{ secrets.CLIENT_ID }}
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
   BUSINESS_GROUP_ID: ${{secrets.BUSINESS_GROUP_ID}}
-  mule.key: ${{secrets.mule.key}}
+  MULE_KEY: ${{secrets.MULE_KEY}}
   AP_CLIENT_ID: ${{secrets.BASIC_AUTH_USERNAME}}
   AP_CLIENT_SECRET: ${{secrets.BASIC_AUTH_PASSWORD}}
 
@@ -38,4 +38,5 @@ jobs:
       run: mvn clean deploy -s settings.xml -DskipTests
       
     - name: Deploy to Runtime
-      run: mvn clean deploy -DmuleDeploy -DskipTests -Denvironment=Sandbox -Dtarget=Cloudhub-US-East-2 -DmuleVersion=4.9.14 -DCLIENT_ID=$CLIENT_ID -DCLIENT_SECRET=$CLIENT_SECRET -DbusinessGroupId=$BUSINESS_GROUP_ID -Dmule.env=dev -Dreplicas=1 -DvCores=0.1 -Dmule.key=$mule.key -DAP.CLIENT_ID=$AP_CLIENT_ID -DAP.CLIENT_SECRET=$AP_CLIENT_SECRET
+
+      run: mvn clean deploy -DmuleDeploy -DskipTests -Denvironment=Sandbox -Dtarget=Cloudhub-US-East-2 -DmuleVersion=4.9.14 -DCLIENT_ID=$CLIENT_ID -DCLIENT_SECRET=$CLIENT_SECRET -DbusinessGroupId=$BUSINESS_GROUP_ID -Dmule.env=dev -Dreplicas=1 -DvCores=0.1 -Dmule.key=$MULE_KEY -DAP.CLIENT_ID=$AP_CLIENT_ID -DAP.CLIENT_SECRET=$AP_CLIENT_SECRET
