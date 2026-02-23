@@ -11,8 +11,8 @@ env:
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
   BUSINESS_GROUP_ID: ${{secrets.BUSINESS_GROUP_ID}}
   MULE_KEY: ${{secrets.MULE_KEY}}
-  AP_CLIENT_ID: ${{secrets.BASIC_AUTH_USERNAME}}
-  AP_CLIENT_SECRET: ${{secrets.BASIC_AUTH_PASSWORD}}
+  AP_CLIENT_ID: ${{secrets.AP_CLIENT_ID}}
+  AP_CLIENT_SECRET: ${{secrets.AP_CLIENT_SECRET}}
 
 jobs:
   BuildAndDeploy:
@@ -40,6 +40,7 @@ jobs:
     - name: Deploy to Runtime
 
       run: mvn clean deploy -s settings.xml -DmuleDeploy -DskipTests -Denvironment=Sandbox -Dtarget=Cloudhub-US-East-2 -DmuleVersion=4.9.14 -DCLIENT_ID=7e4d9a6e338c47d684ea2d8a71915470 -DCLIENT_SECRET=1285052797554318B706a65b1c6BF97e -DbusinessGroupId=020f4d86-fd4b-4d1d-9b27-999b89093231 -Dmule.env=dev -Dreplicas=1 -DvCores=0.1 -Dmule.key=sfr2mulesoft2026 -DAP.CLIENT_ID=75ae6a0faa9d4ce09a8089ae2520fa0c -DAP.CLIENT_SECRET=C44eBbd29b15447fBA3B355981781682
+
 
 
 
