@@ -35,14 +35,8 @@ jobs:
       run: mvn -version
     
     - name: Deploy to Exchange
-      run: mvn clean deploy -DskipTests -s settings.xml
+      run: mvn clean deploy -s settings.xml -DskipTests
       
     - name: Deploy to Runtime
 
-      run: mvn clean deploy -s settings.xml -DmuleDeploy -DskipTests -Denvironment=Sandbox -Dtarget=Cloudhub-US-East-2 -DmuleVersion=4.9.14 -DCLIENT_ID=7e4d9a6e338c47d684ea2d8a71915470 -DCLIENT_SECRET=1285052797554318B706a65b1c6BF97e -DbusinessGroupId=020f4d86-fd4b-4d1d-9b27-999b89093231 -Dmule.env=dev -Dreplicas=1 -DvCores=0.1 -Dmule.key=sfr2mulesoft2026 -DAP.CLIENT_ID=75ae6a0faa9d4ce09a8089ae2520fa0c -DAP.CLIENT_SECRET=C44eBbd29b15447fBA3B355981781682
-
-
-
-
-
-
+      run: mvn clean deploy -s settings.xml -DmuleDeploy -DskipTests -Denvironment=Sandbox -Dtarget=Cloudhub-US-East-2 -DmuleVersion=4.9.14 -DCLIENT_ID=$CLIENT_ID -DCLIENT_SECRET=$CLIENT_SECRET -DbusinessGroupId=$BUSINESS_GROUP_ID -Dmule.env=dev -Dreplicas=1 -DvCores=0.1 -Dmule.key=$MULE_KEY -DAP.CLIENT_ID=$AP_CLIENT_ID -DAP.CLIENT_SECRET=$AP_CLIENT_SECRET
