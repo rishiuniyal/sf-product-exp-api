@@ -4,7 +4,7 @@
 
 	<groupId>020f4d86-fd4b-4d1d-9b27-999b89093231</groupId>
 	<artifactId>sf-products-eapi</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.6</version>
 	<packaging>mule-application</packaging>
 	<name>sf-products-exp-api</name>
 
@@ -79,6 +79,7 @@
 					<classifier>mule-application</classifier>
 					<sharedLibraries>
 					</sharedLibraries>
+    				<deploymentTimeout>1200000</deploymentTimeout>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -151,18 +152,6 @@
 			<version>3.3.0</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-salesforce-connector</artifactId>
-			<version>11.3.3</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-validation-module</artifactId>
-			<version>2.0.8</version>
-			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
 			<groupId>020f4d86-fd4b-4d1d-9b27-999b89093231</groupId>

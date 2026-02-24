@@ -16,7 +16,7 @@
 					<munit-tools:with-attribute whereValue="1ae915dc-0eb7-43ad-ac98-b4d17da5cc3a" attributeName="doc:id" />
 				</munit-tools:with-attributes>
 				<munit-tools:then-return >
-					<munit-tools:payload value='#[readUrl("classpath://response_dwls/msg-get-response.dwl", "application/json")]' />
+					<munit-tools:payload value='#[output application/json&#10;---&#10;[&#10;    {&#10;        "ProductPrice__c": 1412.88,&#10;        "Description": "GenWatt Diesel Generator 1000kW - Product Code GC1060",&#10;        "ProductCode": "GC1060",&#10;        "ExternalId": "P00000000001",&#10;        "Id": "01tg5000002hzlRAAQ",&#10;        "type": "Product2",&#10;        "CurrencyCode__c": "AUD",&#10;        "Name": "GenWatt Diesel Gen 1000kW"&#10;    },&#10;    {&#10;        "ProductPrice__c": 282.84,&#10;        "Description": "GenWatt Diesel Generator 200kW - Product Code GC1040",&#10;        "ProductCode": "GC1040",&#10;        "ExternalId": "P00000000002",&#10;        "Id": "01tg5000002hzlSAAQ",&#10;        "type": "Product2",&#10;        "CurrencyCode__c": "AUD",&#10;        "Name": "GenWatt Diesel 200kW"&#10;    }&#10;]]' />
 				</munit-tools:then-return>
 			</munit-tools:mock-when>
 		</munit:behavior>
