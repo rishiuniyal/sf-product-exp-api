@@ -1,6 +1,10 @@
-# Development environment-specific properties
+# Production environment-specific properties
 
 http:
   request:
     clientId: ""
     clientSecret: ""
+    
+tls:
+  keystore:
+    password: ""
